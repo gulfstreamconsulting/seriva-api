@@ -7,7 +7,7 @@ import type { Provider } from "@auth/core/providers";
 import { getToken } from "@auth/core/jwt";
 
 export const SESSION_COOKIE_NAME = "seriva.session-token";
-const PASSWORD_ITERATIONS = 600_000;
+const PASSWORD_ITERATIONS = 100_000;
 const MAX_AUTH_BODY_BYTES = 8 * 1024;
 
 type UserRow = {
