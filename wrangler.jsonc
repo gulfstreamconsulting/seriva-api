@@ -1,0 +1,47 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "seriva-api",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-07-20",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"vars": {
+		"AUTH_COOKIE_DOMAIN": ""
+	},
+	"observability": {
+		"enabled": true,
+		"logs": {
+			"head_sampling_rate": 1
+		},
+		"traces": {
+			"enabled": true,
+			"head_sampling_rate": 0.05
+		}
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "seriva-assets",
+			"database_id": "8d7d57f6-ea3a-4fe3-b978-f5cf2d8ed0f6",
+			"migrations_dir": "migrations"
+		},
+		{
+			"binding": "seriva_assets_db",
+			"database_name": "seriva-assets_db",
+			"database_id": "8d7d57f6-ea3a-4fe3-b978-f5cf2d8ed0f6",
+			"remote": true
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "ASSETS",
+			"bucket_name": "seriva-assets"
+		},
+		{
+			"bucket_name": "seriva-assets",
+			"binding": "seriva_assets",
+			"remote": true
+		}
+	]
+}
